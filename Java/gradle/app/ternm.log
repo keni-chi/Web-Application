@@ -1,0 +1,85 @@
+GradleMain============================start
+calledPrint--------------------------start
+calledPrintB実行
+calledPrint--------------------------end
+forIf--------------------------start
+0は偶数です
+1は奇数です
+2は偶数です
+forIf--------------------------end
+listIteratorArrays--------------------------start
+list.size()-------start
+A
+B
+C
+list.size()-------end
+イテレータ-------start
+A
+B
+C
+イテレータ-------end
+拡張for文-------start
+A
+B
+C
+拡張for文-------end
+ラムダ-------start
+A
+B
+C
+ラムダ-------end
+ラムダだが、メソッド参照-------start
+A
+B
+C
+ラムダだが、メソッド参照-------end
+listIteratorArrays--------------------------end
+arraylist--------------------------start
+add-------start
+[1, 2]
+[1, 2, 3]
+add-------end
+get-------start
+list = [a, b, c]
+要素数 = 3
+get-------end
+update-------start
+[3, 1, 2, 3, 4]
+update-------end
+delete-------start
+[1, 2, 3, 4]
+delete-------end
+arraylist--------------------------end
+jackson_sample--------------------------start
+json->obj-------start
+{"id":10,"name":"hoge1"}
+json->obj-------end
+obj->json-------start
+Hoge [id=20, name=hoge2]
+obj->json-------end
+pattern-------start
+result1.toString() : {a=1, b=2}
+result2.toString() : [1, 2]
+result3.toString() : [[1111, aaaa], [2222, bbbb]]
+result4.toString() : {a=1, b=2, c=[xxxx, yyyy]}
+result4.a    : class java.lang.Integer:1
+result4.b    : class java.lang.Integer:2
+result4.c[0] : class java.util.ArrayList:[xxxx, yyyy]
+result4.c[1] : class java.lang.String:xxxx
+result4.c : class java.lang.String:yyyy
+pattern-------end
+jackson_sample--------------------------end
+file_output--------------------------start
+file_output--------------------------end
+type_sample--------------------------start
+127
+32767
+2147483647
+2147483647
+1.5
+1.5
+A
+true
+abc
+type_sample--------------------------end
+GradleMain============================end

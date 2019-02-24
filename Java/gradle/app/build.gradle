@@ -1,0 +1,11 @@
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'sample.gradle.GradleMain'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile files('libs/jackson-annotations-2.6.0.jar')
+    compile files('libs/jackson-core-2.6.7.jar')
+    compile files('libs/jackson-databind-2.6.7.1.jar')
+    compile files('libs/jackson-dataformat-cbor-2.6.7.jar')
+}
