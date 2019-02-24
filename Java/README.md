@@ -4,6 +4,8 @@
 覚書である。順次記載予定。
 
 ### コンパイル、実行
+
+#### 基本
 1. build.gradleを作成  
 
   ```
@@ -43,7 +45,7 @@
   java -cp build/classes/java/main sample.gradle.GradleMain
   ```
 
-### gradle run による実行
+#### gradle run による実行
 1. build.gradleに以下を追加
   ```
   apply plugin: 'application'
@@ -51,10 +53,25 @@
   ```
 
 2. 実行
-```
-gradle
-gradle run
-```
+  ```
+  gradle
+  gradle run
+  ```
+
+#### libsの利用  
+1. libsフォルダを作成  
+2. 必要な.jarファイルを置く  
+3. build.gradleを編集して以下を追加
+  ```
+  dependencies {
+      compile fileTree(dir: 'libs', include: '*.jar')
+      compile files('libs/jackson-annotations-2.6.0.jar')
+      compile files('libs/jackson-core-2.6.7.jar')
+      compile files('libs/jackson-databind-2.6.7.1.jar')
+      compile files('libs/jackson-dataformat-cbor-2.6.7.jar')
+  }
+  ```
+
 
 
 ## 参考
