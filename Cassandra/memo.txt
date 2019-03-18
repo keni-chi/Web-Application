@@ -1,2 +1,2 @@
 YCBS
-Cassandraのベンチマーク
+Cassandra縺ｮ繝吶Φ繝√�槭�ｼ繧ｯ

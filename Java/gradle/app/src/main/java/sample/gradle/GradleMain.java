@@ -6,9 +6,9 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
+// import com.fasterxml.jackson.core.JsonProcessingException;
+// import com.fasterxml.jackson.databind.ObjectMapper;
+// import java.io.IOException;
 
 import java.util.Map;
 
@@ -34,7 +34,7 @@ class Called {
             if (i % 2 == 0){
             System.out.println(i + "は偶数です");
             }
-            
+
             if (i % 2 != 0){
             System.out.println(i + "は奇数です");
             }
@@ -80,7 +80,7 @@ class Called {
 
         System.out.println("listIteratorArrays--------------------------end");
    }
-    
+
    void arraylist(){
         System.out.println("arraylist--------------------------start");
 
@@ -89,13 +89,13 @@ class Called {
         list1.add(1);
         list1.add(2);
         System.out.println(list1);
-         
+
         List<Integer> list2 = new ArrayList<>();
         list2.add(3);
         list1.addAll(list2);
         System.out.println(list1);
         System.out.println("add-------end");
-        
+
         System.out.println("get-------start");
         List<String> list3 = new ArrayList<>(Arrays.asList("a", "b", "c"));
         System.out.println("list = " + list3);
@@ -115,77 +115,77 @@ class Called {
         list4.remove(0);
         System.out.println(list4);
         System.out.println("delete-------end");
-        
+
         System.out.println("arraylist--------------------------end");
    }
 
     void jackson_sample(){
         System.out.println("jackson_sample--------------------------start");
 
-        System.out.println("json->obj-------start");
+        // System.out.println("json->obj-------start");
+        //
+        // Hoge hoge1 = new Hoge();
+        // hoge1.id = 10;
+        // hoge1.name = "hoge1";
+        // ObjectMapper mapper1 = new ObjectMapper();
+        // try {
+        //     String json = mapper1.writeValueAsString(hoge1);
+        //     System.out.println(json);
+        // } catch (JsonProcessingException e) {
+    		// 	e.printStackTrace();
+    		// }
+        //
+    		// System.out.println("json->obj-------end");
+        //
+        //
+    		// System.out.println("obj->json-------start");
+        //
+        //     String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
+        //     ObjectMapper mapper2 = new ObjectMapper();
+        //     try {
+        //         Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
+        //         System.out.println(hoge2);
+        //     } catch (IOException e) {
+    		// 	e.printStackTrace();
+    		// }
+        //
+    		// System.out.println("obj->json-------end");
+        //
+        //
+        // try {
+    		//     System.out.println("pattern-------start");
+        //
+        //     // 基本。
+        //     ObjectMapper mapper = new ObjectMapper();
+        //     String jsondata = "{\"a\":1,\"b\":2}";
+        //     Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
+        //     System.out.println("result1.toString() : " + result.toString());
+        //
+        //     // リスト
+        //     jsondata = "[1,2]";
+        //     List<Integer> result2 = mapper.readValue(jsondata, List.class);
+        //     System.out.println("result2.toString() : " + result2.toString());
+        //
+        //     // ネストしたリスト
+        //     jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
+        //     List<List<String>> result3 = mapper.readValue(jsondata, List.class);
+        //     System.out.println("result3.toString() : " + result3.toString());
+        //
+        //     // オブジェクトの中にリストが含まれているパターン
+        //     jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
+        //     Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
+        //     System.out.println("result4.toString() : " + result4.toString());
+        //     System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
+        //     System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
+        //     System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
+        //     System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
+        //     System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
+        //
+        // 		System.out.println("pattern-------end");
+        // } catch (IOException e) {
+    		// 	e.printStackTrace();
+    		// }
 
-        Hoge hoge1 = new Hoge();
-        hoge1.id = 10;
-        hoge1.name = "hoge1";
-        ObjectMapper mapper1 = new ObjectMapper();
-        try {
-            String json = mapper1.writeValueAsString(hoge1);
-            System.out.println(json);
-        } catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("json->obj-------end");
-
-
-		System.out.println("obj->json-------start");
-
-        String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
-        ObjectMapper mapper2 = new ObjectMapper();
-        try {
-            Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
-            System.out.println(hoge2);
-        } catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("obj->json-------end");
-
-
-        try {
-    		System.out.println("pattern-------start");
-
-            // 基本。
-            ObjectMapper mapper = new ObjectMapper();
-            String jsondata = "{\"a\":1,\"b\":2}";
-            Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
-            System.out.println("result1.toString() : " + result.toString());
-
-            // リスト
-            jsondata = "[1,2]";
-            List<Integer> result2 = mapper.readValue(jsondata, List.class);
-            System.out.println("result2.toString() : " + result2.toString());
-
-            // ネストしたリスト
-            jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
-            List<List<String>> result3 = mapper.readValue(jsondata, List.class);
-            System.out.println("result3.toString() : " + result3.toString());
-
-            // オブジェクトの中にリストが含まれているパターン
-            jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
-            Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
-            System.out.println("result4.toString() : " + result4.toString());
-            System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
-            System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
-            System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
-            System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
-            System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
-
-    		System.out.println("pattern-------end");
-        } catch (IOException e) {
-			e.printStackTrace();
-		}
-		
         System.out.println("jackson_sample--------------------------end");
    }
 
@@ -203,7 +203,7 @@ class Called {
 
         System.out.println("file_output--------------------------end");
    }
-   
+
     void type_sample(){
         System.out.println("type_sample--------------------------start");
 
@@ -218,7 +218,7 @@ class Called {
         String x9 = "abc";
 
         // x3 = 8;   final確認用
-        
+
         System.out.println(x1);
         System.out.println(x2);
         System.out.println(x3);
@@ -228,7 +228,7 @@ class Called {
         System.out.println(x7);
         System.out.println(x8);
         System.out.println(x9);
-        
+
         System.out.println("type_sample--------------------------end");
    }
 
@@ -249,16 +249,16 @@ class Hoge {
 class GradleMain {
     public static void main(String args[]) {
         System.out.println("GradleMain============================start");
-        
+
         Called c_001 = new Called();
         c_001.calledPrint();
         c_001.forIf();
         c_001.listIteratorArrays();
         c_001.arraylist();
-        c_001.jackson_sample();
+        // c_001.jackson_sample();
         c_001.file_output();
         c_001.type_sample();
-        
+
         System.out.println("GradleMain============================end");
     }
 }
