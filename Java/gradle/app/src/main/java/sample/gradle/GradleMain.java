@@ -249,9 +249,12 @@ class Called {
    }
 
    void file_read(){
-       System.out.println("file_read--------------------------start");
+      System.out.println("file_read--------------------------start");
 
-       System.out.println("file_read--------------------------end");
+      String cd = System.getProperty("user.dir");
+      System.out.println(cd);
+
+      System.out.println("file_read--------------------------end");
   }
 
 
