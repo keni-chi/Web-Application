@@ -248,6 +248,13 @@ class Called {
         System.out.println("type_sample--------------------------end");
    }
 
+   void file_read(){
+       System.out.println("file_read--------------------------start");
+
+       System.out.println("file_read--------------------------end");
+  }
+
+
 }
 
 
@@ -270,6 +277,9 @@ class GradleMain {
         Called c_001 = new Called();
         c_001.calledPrint();
         c_001.forIf();
+
+        System.out.println("ファイル操作================================");
+        c_001.file_read();
 
         System.out.println("list, map================================");
         c_001.listIteratorArrays();
