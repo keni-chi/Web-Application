@@ -19,6 +19,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+
 
 class Called {
 
@@ -205,59 +211,72 @@ class Called {
         System.out.println("jackson_sample--------------------------end");
    }
 
-    void file_output(){
-        System.out.println("file_output--------------------------start");
-
-        try {
-            File file = new File("output.txt");
-            FileWriter fw = new FileWriter(file);
-            fw.write("test output");
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-        System.out.println("file_output--------------------------end");
-   }
-
-    void type_sample(){
-        System.out.println("type_sample--------------------------start");
-
-        byte x1 = 127;
-        short x2 = 32767;
-        final int x3 = 2147483647;
-        long x4 = 2147483647;
-        float x5 = 1.5f;
-        double x6 = 1.5d;
-        char x7 = 'A';
-        boolean x8 = true;
-        String x9 = "abc";
-
-        // x3 = 8;   final確認用
-
-        System.out.println(x1);
-        System.out.println(x2);
-        System.out.println(x3);
-        System.out.println(x4);
-        System.out.println(x5);
-        System.out.println(x6);
-        System.out.println(x7);
-        System.out.println(x8);
-        System.out.println(x9);
-
-        System.out.println("type_sample--------------------------end");
-   }
-
    void file_read(){
       System.out.println("file_read--------------------------start");
 
       String cd = System.getProperty("user.dir");
       System.out.println(cd);
-      String path = cd + "/file";
-      System.out.println(path);
+      String file_path = cd + "/file";
+      String filename = "input.csv";
+      String charset = "UTF-8";
+   
+      try {
+          List<String> line = Files.readAllLines(
+              Paths.get(file_path, filename),
+                  Charset.forName(charset));
+          for (String s : line) {
+              System.out.println(s);
+          }
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
 
       System.out.println("file_read--------------------------end");
   }
+
+  void file_output(){
+      System.out.println("file_output--------------------------start");
+
+      try {
+          File file = new File("output.txt");
+          FileWriter fw = new FileWriter(file);
+          fw.write("test output");
+          fw.close();
+      } catch (IOException ex) {
+          ex.printStackTrace();
+      }
+
+      System.out.println("file_output--------------------------end");
+  }
+
+  void type_sample(){
+      System.out.println("type_sample--------------------------start");
+
+      byte x1 = 127;
+      short x2 = 32767;
+      final int x3 = 2147483647;
+      long x4 = 2147483647;
+      float x5 = 1.5f;
+      double x6 = 1.5d;
+      char x7 = 'A';
+      boolean x8 = true;
+      String x9 = "abc";
+
+      // x3 = 8;   final確認用
+
+      System.out.println(x1);
+      System.out.println(x2);
+      System.out.println(x3);
+      System.out.println(x4);
+      System.out.println(x5);
+      System.out.println(x6);
+      System.out.println(x7);
+      System.out.println(x8);
+      System.out.println(x9);
+
+      System.out.println("type_sample--------------------------end");
+  }
+
 
 
 }
@@ -285,15 +304,13 @@ class GradleMain {
 
         System.out.println("ファイル操作================================");
         c_001.file_read();
+        c_001.file_output();
 
         System.out.println("list, map================================");
         c_001.listIteratorArrays();
         c_001.arraylist();
         // c_001.jackson_sample();
         c_001.list_duplicate();
-
-        System.out.println("file================================");
-        c_001.file_output();
 
         System.out.println("type================================");
         c_001.type_sample();
