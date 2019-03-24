@@ -119,6 +119,12 @@ class Called {
         System.out.println("arraylist--------------------------end");
    }
 
+   void list_duplicate(){
+        System.out.println("list_duplicate--------------------------start");
+
+        System.out.println("list_duplicate--------------------------end");
+   }
+
     void jackson_sample(){
         System.out.println("jackson_sample--------------------------start");
 
@@ -250,20 +256,21 @@ class GradleMain {
     public static void main(String args[]) {
         System.out.println("GradleMain============================start");
 
-        print('Basic================================')
+        System.out.println("Basic================================");
         Called c_001 = new Called();
         c_001.calledPrint();
         c_001.forIf();
 
-        print('list, map================================')
+        System.out.println("list, map================================");
         c_001.listIteratorArrays();
         c_001.arraylist();
         // c_001.jackson_sample();
+        c_001.list_duplicate();
 
-        print('file================================')
+        System.out.println("file================================");
         c_001.file_output();
 
-        print('type================================')
+        System.out.println("type================================");
         c_001.type_sample();
 
         System.out.println("GradleMain============================end");
