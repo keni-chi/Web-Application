@@ -250,13 +250,20 @@ class GradleMain {
     public static void main(String args[]) {
         System.out.println("GradleMain============================start");
 
+        print('Basic================================')
         Called c_001 = new Called();
         c_001.calledPrint();
         c_001.forIf();
+
+        print('list, map================================')
         c_001.listIteratorArrays();
         c_001.arraylist();
         // c_001.jackson_sample();
+
+        print('file================================')
         c_001.file_output();
+
+        print('type================================')
         c_001.type_sample();
 
         System.out.println("GradleMain============================end");
