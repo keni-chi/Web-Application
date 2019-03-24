@@ -253,6 +253,8 @@ class Called {
 
       String cd = System.getProperty("user.dir");
       System.out.println(cd);
+      String path = cd + "/file";
+      System.out.println(path);
 
       System.out.println("file_read--------------------------end");
   }
