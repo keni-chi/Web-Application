@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 import java.util.Map;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -121,6 +124,13 @@ class Called {
 
    void list_duplicate(){
         System.out.println("list_duplicate--------------------------start");
+
+        List<String> listA = new ArrayList<String>(Arrays.asList("s", "a", "m", "u", "r", "a", "i"));
+        List<String> listB = new ArrayList<String>(new HashSet<>(listA));
+        List<String> listC = new ArrayList<String>(new LinkedHashSet<>(listA));
+        System.out.println("ListA = " + listA);
+        System.out.println("ListB = " + listB);
+        System.out.println("ListA = " + listC);
 
         System.out.println("list_duplicate--------------------------end");
    }
