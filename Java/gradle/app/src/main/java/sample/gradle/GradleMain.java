@@ -49,43 +49,43 @@ class Called {
     System.out.println("forIf--------------------------end");
   }
 
-   void listIteratorArrays(){
-        System.out.println("listIteratorArrays--------------------------start");
+  void listIteratorArrays(){
+    System.out.println("listIteratorArrays--------------------------start");
 
-        List<String> list = Arrays.asList("A", "B", "C");
+    List<String> list = Arrays.asList("A", "B", "C");
 
-        System.out.println("list.size()-------start");
-        for(int i = 0; i < list.size(); ++i){
-            String s = list.get(i);
-            System.out.println(s);
-        }
-        System.out.println("list.size()-------end");
+    System.out.println("list.size()-------start");
+    for(int i = 0; i < list.size(); ++i){
+        String s = list.get(i);
+        System.out.println(s);
+    }
+    System.out.println("list.size()-------end");
 
-        System.out.println("イテレータ-------start");
-        for(Iterator<String>itr = list.iterator(); itr.hasNext();){
-            String s = itr.next();
-            System.out.println(s);
-        }
-        System.out.println("イテレータ-------end");
+    System.out.println("イテレータ-------start");
+    for(Iterator<String>itr = list.iterator(); itr.hasNext();){
+        String s = itr.next();
+        System.out.println(s);
+    }
+    System.out.println("イテレータ-------end");
 
-        System.out.println("拡張for文-------start");
-        for(String s : list){
-            System.out.println(s);
-        }
-        System.out.println("拡張for文-------end");
+    System.out.println("拡張for文-------start");
+    for(String s : list){
+        System.out.println(s);
+    }
+    System.out.println("拡張for文-------end");
 
-        System.out.println("ラムダ-------start");
-        list.forEach(s -> {
-            System.out.println(s);
-        });
-        System.out.println("ラムダ-------end");
+    System.out.println("ラムダ-------start");
+    list.forEach(s -> {
+        System.out.println(s);
+    });
+    System.out.println("ラムダ-------end");
 
-        System.out.println("ラムダだが、メソッド参照-------start");
-        list.forEach(System.out::println);
-        System.out.println("ラムダだが、メソッド参照-------end");
+    System.out.println("ラムダだが、メソッド参照-------start");
+    list.forEach(System.out::println);
+    System.out.println("ラムダだが、メソッド参照-------end");
 
-        System.out.println("listIteratorArrays--------------------------end");
-   }
+    System.out.println("listIteratorArrays--------------------------end");
+  }
 
    void arraylist(){
         System.out.println("arraylist--------------------------start");
