@@ -28,29 +28,26 @@ import java.nio.file.Files;
 
 class Called {
 
-   void calledPrint(){
-        System.out.println("calledPrint--------------------------start");
+  void calledPrint(){
+    System.out.println("calledPrint--------------------------start");
+    System.out.println("calledPrintB実行");
+    System.out.println("calledPrint--------------------------end");
+  }
 
-        System.out.println("calledPrintB実行");
+  void forIf(){
+    System.out.println("forIf--------------------------start");
 
-        System.out.println("calledPrint--------------------------end");
-   }
-
-   void forIf(){
-        System.out.println("forIf--------------------------start");
-
-        for (int i = 0 ; i < 3 ; i++){
-            if (i % 2 == 0){
-            System.out.println(i + "は偶数です");
-            }
-
-            if (i % 2 != 0){
-            System.out.println(i + "は奇数です");
-            }
+    for (int i = 0 ; i < 3 ; i++){
+        if (i % 2 == 0){
+        System.out.println(i + "は偶数です");
         }
+        if (i % 2 != 0){
+        System.out.println(i + "は奇数です");
+        }
+    }
 
-        System.out.println("forIf--------------------------end");
-   }
+    System.out.println("forIf--------------------------end");
+  }
 
    void listIteratorArrays(){
         System.out.println("listIteratorArrays--------------------------start");
