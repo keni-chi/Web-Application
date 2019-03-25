@@ -6,9 +6,9 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-// import com.fasterxml.jackson.core.JsonProcessingException;
-// import com.fasterxml.jackson.databind.ObjectMapper;
-// import java.io.IOException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 import java.util.Map;
 
@@ -144,69 +144,69 @@ class Called {
     void jackson_sample(){
         System.out.println("jackson_sample--------------------------start");
 
-        // System.out.println("json->obj-------start");
-        //
-        // Hoge hoge1 = new Hoge();
-        // hoge1.id = 10;
-        // hoge1.name = "hoge1";
-        // ObjectMapper mapper1 = new ObjectMapper();
-        // try {
-        //     String json = mapper1.writeValueAsString(hoge1);
-        //     System.out.println(json);
-        // } catch (JsonProcessingException e) {
-    		// 	e.printStackTrace();
-    		// }
-        //
-    		// System.out.println("json->obj-------end");
-        //
-        //
-    		// System.out.println("obj->json-------start");
-        //
-        //     String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
-        //     ObjectMapper mapper2 = new ObjectMapper();
-        //     try {
-        //         Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
-        //         System.out.println(hoge2);
-        //     } catch (IOException e) {
-    		// 	e.printStackTrace();
-    		// }
-        //
-    		// System.out.println("obj->json-------end");
-        //
-        //
-        // try {
-    		//     System.out.println("pattern-------start");
-        //
-        //     // 基本。
-        //     ObjectMapper mapper = new ObjectMapper();
-        //     String jsondata = "{\"a\":1,\"b\":2}";
-        //     Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
-        //     System.out.println("result1.toString() : " + result.toString());
-        //
-        //     // リスト
-        //     jsondata = "[1,2]";
-        //     List<Integer> result2 = mapper.readValue(jsondata, List.class);
-        //     System.out.println("result2.toString() : " + result2.toString());
-        //
-        //     // ネストしたリスト
-        //     jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
-        //     List<List<String>> result3 = mapper.readValue(jsondata, List.class);
-        //     System.out.println("result3.toString() : " + result3.toString());
-        //
-        //     // オブジェクトの中にリストが含まれているパターン
-        //     jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
-        //     Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
-        //     System.out.println("result4.toString() : " + result4.toString());
-        //     System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
-        //     System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
-        //     System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
-        //     System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
-        //     System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
-        //
-        // 		System.out.println("pattern-------end");
-        // } catch (IOException e) {
-    		// 	e.printStackTrace();
-    		// }
+        System.out.println("json->obj-------start");
+        
+        Hoge hoge1 = new Hoge();
+        hoge1.id = 10;
+        hoge1.name = "hoge1";
+        ObjectMapper mapper1 = new ObjectMapper();
+        try {
+            String json = mapper1.writeValueAsString(hoge1);
+            System.out.println(json);
+        } catch (JsonProcessingException e) {
+    			e.printStackTrace();
+    		}
+        
+    		System.out.println("json->obj-------end");
+        
+        
+    		System.out.println("obj->json-------start");
+        
+            String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
+            ObjectMapper mapper2 = new ObjectMapper();
+            try {
+                Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
+                System.out.println(hoge2);
+            } catch (IOException e) {
+    			e.printStackTrace();
+    		}
+        
+    		System.out.println("obj->json-------end");
+        
+        
+        try {
+    		    System.out.println("pattern-------start");
+        
+            // 基本。
+            ObjectMapper mapper = new ObjectMapper();
+            String jsondata = "{\"a\":1,\"b\":2}";
+            Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
+            System.out.println("result1.toString() : " + result.toString());
+        
+            // リスト
+            jsondata = "[1,2]";
+            List<Integer> result2 = mapper.readValue(jsondata, List.class);
+            System.out.println("result2.toString() : " + result2.toString());
+        
+            // ネストしたリスト
+            jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
+            List<List<String>> result3 = mapper.readValue(jsondata, List.class);
+            System.out.println("result3.toString() : " + result3.toString());
+        
+            // オブジェクトの中にリストが含まれているパターン
+            jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
+            Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
+            System.out.println("result4.toString() : " + result4.toString());
+            System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
+            System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
+            System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
+            System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
+            System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
+        
+        		System.out.println("pattern-------end");
+        } catch (IOException e) {
+    			e.printStackTrace();
+    		}
 
         System.out.println("jackson_sample--------------------------end");
    }
