@@ -141,11 +141,10 @@ class Called {
         System.out.println("list_duplicate--------------------------end");
    }
 
-    void jackson_sample(){
-        System.out.println("jackson_sample--------------------------start");
+    void jackson_obj_str(){
+        System.out.println("jackson_obj_str--------------------------start");
 
-        System.out.println("json->obj-------start");
-        
+        System.out.println("Javaオブジェクト→JSON文字列-------start");
         Hoge hoge1 = new Hoge();
         hoge1.id = 10;
         hoge1.name = "hoge1";
@@ -156,27 +155,25 @@ class Called {
         } catch (JsonProcessingException e) {
     			e.printStackTrace();
     		}
+    		System.out.println("Javaオブジェクト→JSON文字列-------end");
         
-    		System.out.println("json->obj-------end");
-        
-        
-    		System.out.println("obj->json-------start");
-        
-            String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
-            ObjectMapper mapper2 = new ObjectMapper();
-            try {
-                Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
-                System.out.println(hoge2);
-            } catch (IOException e) {
+    		System.out.println("JSON文字列→Javaオブジェクト-------start");
+        String json_str = "{\"id\":20, \"name\":\"hoge2\"}";
+        ObjectMapper mapper2 = new ObjectMapper();
+        try {
+            Hoge hoge2 = mapper2.readValue(json_str, Hoge.class);
+            System.out.println(hoge2);
+        } catch (IOException e) {
     			e.printStackTrace();
     		}
-        
-    		System.out.println("obj->json-------end");
-        
-        
+    		System.out.println("JSON文字列→Javaオブジェクト-------end");
+
+        System.out.println("jackson_obj_str--------------------------end");
+    }
+
+    void jackson_get(){
+        System.out.println("jackson_get--------------------------end");        
         try {
-    		    System.out.println("pattern-------start");
-        
             // 基本。
             ObjectMapper mapper = new ObjectMapper();
             String jsondata = "{\"a\":1,\"b\":2}";
@@ -202,13 +199,11 @@ class Called {
             System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
             System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
             System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
-        
-        		System.out.println("pattern-------end");
         } catch (IOException e) {
     			e.printStackTrace();
     		}
 
-        System.out.println("jackson_sample--------------------------end");
+        System.out.println("jackson_get--------------------------end");
    }
 
    void file_read(){
@@ -234,8 +229,8 @@ class Called {
       System.out.println("file_read--------------------------end");
   }
 
-  void file_output(){
-      System.out.println("file_output--------------------------start");
+  void file_write(){
+      System.out.println("file_write--------------------------start");
 
       try {
           File file = new File("output.txt");
@@ -246,7 +241,7 @@ class Called {
           ex.printStackTrace();
       }
 
-      System.out.println("file_output--------------------------end");
+      System.out.println("file_write--------------------------end");
   }
 
   void type_sample(){
@@ -276,9 +271,6 @@ class Called {
 
       System.out.println("type_sample--------------------------end");
   }
-
-
-
 }
 
 
@@ -304,12 +296,13 @@ class GradleMain {
 
         System.out.println("ファイル操作================================");
         c_001.file_read();
-        c_001.file_output();
+        c_001.file_write();
 
         System.out.println("list, map================================");
         c_001.listIteratorArrays();
         c_001.arraylist();
-        // c_001.jackson_sample();
+        c_001.jackson_obj_str();
+        c_001.jackson_get();
         c_001.list_duplicate();
 
         System.out.println("type================================");
