@@ -87,43 +87,43 @@ class Called {
     System.out.println("listIteratorArrays--------------------------end");
   }
 
-   void arraylist(){
-        System.out.println("arraylist--------------------------start");
+  void arraylist(){
+    System.out.println("arraylist--------------------------start");
 
-        System.out.println("add-------start");
-        List<Integer> list1 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
-        System.out.println(list1);
+    System.out.println("add-------start");
+    List<Integer> list1 = new ArrayList<>();
+    list1.add(1);
+    list1.add(2);
+    System.out.println(list1);
 
-        List<Integer> list2 = new ArrayList<>();
-        list2.add(3);
-        list1.addAll(list2);
-        System.out.println(list1);
-        System.out.println("add-------end");
+    List<Integer> list2 = new ArrayList<>();
+    list2.add(3);
+    list1.addAll(list2);
+    System.out.println(list1);
+    System.out.println("add-------end");
 
-        System.out.println("get-------start");
-        List<String> list3 = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        System.out.println("list = " + list3);
-        System.out.println("要素数 = " + list3.size());
-        System.out.println("get-------end");
+    System.out.println("get-------start");
+    List<String> list3 = new ArrayList<>(Arrays.asList("a", "b", "c"));
+    System.out.println("list = " + list3);
+    System.out.println("要素数 = " + list3.size());
+    System.out.println("get-------end");
 
-        System.out.println("update-------start");
-        List<Integer> list4 = new ArrayList<>();
-        for(int i = 0; i < 5; i++) {
-            list4.add(i);
-        }
-        list4.set(0, 3);
-        System.out.println(list4);
-        System.out.println("update-------end");
+    System.out.println("update-------start");
+    List<Integer> list4 = new ArrayList<>();
+    for(int i = 0; i < 5; i++) {
+        list4.add(i);
+    }
+    list4.set(0, 3);
+    System.out.println(list4);
+    System.out.println("update-------end");
 
-        System.out.println("delete-------start");
-        list4.remove(0);
-        System.out.println(list4);
-        System.out.println("delete-------end");
+    System.out.println("delete-------start");
+    list4.remove(0);
+    System.out.println(list4);
+    System.out.println("delete-------end");
 
-        System.out.println("arraylist--------------------------end");
-   }
+    System.out.println("arraylist--------------------------end");
+  }
 
    void list_duplicate(){
         System.out.println("list_duplicate--------------------------start");
