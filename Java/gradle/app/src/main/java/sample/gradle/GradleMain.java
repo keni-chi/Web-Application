@@ -1,38 +1,32 @@
 package sample.gradle;
 
+// util
+import java.io.IOException;
+
+// list, map
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
 import java.util.ArrayList;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-
-import java.util.Map;
-
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
+// jacson
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
+import java.util.HashMap;
+
+// file
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-
-import java.nio.charset.Charset;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 
 class Called {
-
-  void calledPrint(){
-    System.out.println("calledPrint--------------------------start");
-    System.out.println("calledPrintB実行");
-    System.out.println("calledPrint--------------------------end");
-  }
 
   void forIf(){
     System.out.println("forIf--------------------------start");
@@ -169,105 +163,144 @@ class Called {
   }
 
   void jackson_get(){
-    System.out.println("jackson_get--------------------------end");   
+    System.out.println("jackson_get--------------------------start");   
 
     try {
-        // 基本。
-        ObjectMapper mapper = new ObjectMapper();
-        String jsondata = "{\"a\":1,\"b\":2}";
-        Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
-        System.out.println("result1.toString() : " + result.toString());
-    
-        // リスト
-        jsondata = "[1,2]";
-        List<Integer> result2 = mapper.readValue(jsondata, List.class);
-        System.out.println("result2.toString() : " + result2.toString());
-    
-        // ネストしたリスト
-        jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
-        List<List<String>> result3 = mapper.readValue(jsondata, List.class);
-        System.out.println("result3.toString() : " + result3.toString());
-    
-        // オブジェクトの中にリストが含まれているパターン
-        jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
-        Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
-        System.out.println("result4.toString() : " + result4.toString());
-        System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
-        System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
-        System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
-        System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
-        System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
+      // 基本。
+      ObjectMapper mapper = new ObjectMapper();
+      String jsondata = "{\"a\":1,\"b\":2}";
+      Map<String,Integer> result = mapper.readValue(jsondata, Map.class);
+      System.out.println("result1.toString() : " + result.toString());
+
+      // リスト
+      jsondata = "[1,2]";
+      List<Integer> result2 = mapper.readValue(jsondata, List.class);
+      System.out.println("result2.toString() : " + result2.toString());
+
+      // ネストしたリスト
+      jsondata = "[[\"1111\",\"aaaa\"],[\"2222\",\"bbbb\"]]";
+      List<List<String>> result3 = mapper.readValue(jsondata, List.class);
+      System.out.println("result3.toString() : " + result3.toString());
+
+      // オブジェクトの中にリストが含まれているパターン
+      jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"]}";
+      Map<String,Object> result4 = mapper.readValue(jsondata, Map.class);
+      System.out.println("result4.toString() : " + result4.toString());
+      System.out.println("result4.a    : " + result4.get("a").getClass() +":"+result4.get("a"));
+      System.out.println("result4.b    : " + result4.get("b").getClass() +":"+result4.get("b"));
+      System.out.println("result4.c[0] : " + result4.get("c").getClass() +":"+result4.get("c"));
+      System.out.println("result4.c[1] : " + ((List)result4.get("c")).get(0).getClass() +":"+((List)result4.get("c")).get(0));
+      System.out.println("result4.c : " + ((List)result4.get("c")).get(1).getClass() +":"+((List)result4.get("c")).get(1));
     } catch (IOException e) {
 			e.printStackTrace();
 		}
 
     System.out.println("jackson_get--------------------------end");
   }
+  
+  void jackson_map_loop(){
+    System.out.println("jackson_map_loop--------------------------start");   
 
-   void file_read(){
-      System.out.println("file_read--------------------------start");
-
-      String cd = System.getProperty("user.dir");
-      System.out.println(cd);
-      String file_path = cd + "/file";
-      String filename = "input.csv";
-      String charset = "UTF-8";
-   
-      try {
-          List<String> line = Files.readAllLines(
-              Paths.get(file_path, filename),
-                  Charset.forName(charset));
-          for (String s : line) {
-              System.out.println(s);
-          }
-      } catch (IOException e) {
-          e.printStackTrace();
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      String jsondata = "{\"a\":1,\"b\":2,\"c\":[\"xxxx\",\"yyyy\"],\"d\":{\"d1\":\"eeeee\",\"d2\":\"fffff\"}}";
+      Map<String,Object> result5 = mapper.readValue(jsondata, Map.class);
+      for (String key : result5.keySet()){
+      	if (result5.get(key) instanceof Map) {
+      		System.out.println("result5.get(\""+key+"\") instanceof Map");
+          System.out.println(result5.get(key));
+      	}else if (result5.get(key) instanceof List){
+      		System.out.println("result5.get(\""+key+"\") instanceof List");;
+          System.out.println(result5.get(key));
+      	}	
       }
+    } catch (IOException e) {
+			e.printStackTrace();
+		}
 
-      System.out.println("file_read--------------------------end");
+    System.out.println("jackson_map_loop--------------------------end");
+  }
+
+  void jackson_put(){
+    System.out.println("jackson_put--------------------------start");   
+
+    // Mapの宣言
+    Map<String, String> map1 = new HashMap<String, String>();
+    // MAPにデータを格納
+    map1.put("key1", "apple");
+    map1.put("key2", "orange");
+    map1.put("key3", "melon");
+    System.out.println(map1.get("key1"));
+    System.out.println(map1.get("key2"));
+    System.out.println(map1.get("key3"));
+
+    System.out.println("jackson_put--------------------------end");
+  }
+  
+  void file_read(){
+    System.out.println("file_read--------------------------start");
+
+    String cd = System.getProperty("user.dir");
+    System.out.println(cd);
+    String file_path = cd + "/file";
+    String filename = "input.csv";
+    String charset = "UTF-8";
+ 
+    try {
+        List<String> line = Files.readAllLines(
+            Paths.get(file_path, filename),
+                Charset.forName(charset));
+        for (String s : line) {
+            System.out.println(s);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    System.out.println("file_read--------------------------end");
   }
 
   void file_write(){
-      System.out.println("file_write--------------------------start");
+    System.out.println("file_write--------------------------start");
 
-      try {
-          File file = new File("output.txt");
-          FileWriter fw = new FileWriter(file);
-          fw.write("test output");
-          fw.close();
-      } catch (IOException ex) {
-          ex.printStackTrace();
-      }
+    try {
+        File file = new File("output.txt");
+        FileWriter fw = new FileWriter(file);
+        fw.write("test output");
+        fw.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
 
-      System.out.println("file_write--------------------------end");
+    System.out.println("file_write--------------------------end");
   }
 
   void type_sample(){
-      System.out.println("type_sample--------------------------start");
+    System.out.println("type_sample--------------------------start");
 
-      byte x1 = 127;
-      short x2 = 32767;
-      final int x3 = 2147483647;
-      long x4 = 2147483647;
-      float x5 = 1.5f;
-      double x6 = 1.5d;
-      char x7 = 'A';
-      boolean x8 = true;
-      String x9 = "abc";
+    byte x1 = 127;
+    short x2 = 32767;
+    final int x3 = 2147483647;
+    long x4 = 2147483647;
+    float x5 = 1.5f;
+    double x6 = 1.5d;
+    char x7 = 'A';
+    boolean x8 = true;
+    String x9 = "abc";
 
-      // x3 = 8;   final確認用
+    // x3 = 8;   final確認用
 
-      System.out.println(x1);
-      System.out.println(x2);
-      System.out.println(x3);
-      System.out.println(x4);
-      System.out.println(x5);
-      System.out.println(x6);
-      System.out.println(x7);
-      System.out.println(x8);
-      System.out.println(x9);
+    System.out.println(x1);
+    System.out.println(x2);
+    System.out.println(x3);
+    System.out.println(x4);
+    System.out.println(x5);
+    System.out.println(x6);
+    System.out.println(x7);
+    System.out.println(x8);
+    System.out.println(x9);
 
-      System.out.println("type_sample--------------------------end");
+    System.out.println("type_sample--------------------------end");
   }
 }
 
@@ -286,22 +319,25 @@ class Hoge {
 class GradleMain {
     public static void main(String args[]) {
         System.out.println("GradleMain============================start");
+        Called c_001 = new Called();
 
         System.out.println("Basic================================");
-        Called c_001 = new Called();
-        c_001.calledPrint();
         c_001.forIf();
 
-        System.out.println("ファイル操作================================");
+        System.out.println("file================================");
         c_001.file_read();
         c_001.file_write();
 
         System.out.println("list, map================================");
         c_001.listIteratorArrays();
         c_001.arraylist();
-        c_001.jackson_obj_str();
-        c_001.jackson_get();
         c_001.list_duplicate();
+
+        System.out.println("jackson================================");
+        c_001.jackson_obj_str();
+        c_001.jackson_map_loop();
+        c_001.jackson_get();
+        c_001.jackson_put();
 
         System.out.println("type================================");
         c_001.type_sample();
