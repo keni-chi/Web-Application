@@ -1,0 +1,34 @@
+{
+    "member": [
+        {
+            "name": "John",
+            "age": 22
+        },
+        {
+            "name": "Paul",
+            "age": 21
+        },
+        {
+            "name": "George",
+            "age": 19
+        },
+        {
+            "name": "Ringo",
+            "age": 22
+        }
+    ],
+    "album": [
+        {
+            "name": "Rubber Soul",
+            "year": 1965,
+            "month": "December",
+            "day": 3
+        },
+        {
+            "name": "Revolver",
+            "year": 1966,
+            "month": "August",
+            "day": 5
+        }
+    ]
+}

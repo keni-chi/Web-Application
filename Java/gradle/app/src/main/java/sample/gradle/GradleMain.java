@@ -14,6 +14,8 @@ import java.util.LinkedHashSet;
 // jacson
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -41,6 +43,44 @@ class Called {
     }
 
     System.out.println("forIf--------------------------end");
+  }
+
+  void file_read(){
+    System.out.println("file_read--------------------------start");
+
+    String cd = System.getProperty("user.dir");
+    System.out.println(cd);
+    String file_path = cd + "/file";
+    String filename = "input.csv";
+    String charset = "UTF-8";
+ 
+    try {
+        List<String> line = Files.readAllLines(
+            Paths.get(file_path, filename),
+                Charset.forName(charset));
+        for (String s : line) {
+            System.out.println(s);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    System.out.println("file_read--------------------------end");
+  }
+
+  void file_write(){
+    System.out.println("file_write--------------------------start");
+
+    try {
+        File file = new File("output.txt");
+        FileWriter fw = new FileWriter(file);
+        fw.write("test output");
+        fw.close();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+
+    System.out.println("file_write--------------------------end");
   }
 
   void listIteratorArrays(){
@@ -81,8 +121,8 @@ class Called {
     System.out.println("listIteratorArrays--------------------------end");
   }
 
-  void arraylist(){
-    System.out.println("arraylist--------------------------start");
+  void arraylist_add_get_update_delete(){
+    System.out.println("arraylist_add_get_update_delete--------------------------start");
 
     System.out.println("add-------start");
     List<Integer> list1 = new ArrayList<>();
@@ -116,11 +156,11 @@ class Called {
     System.out.println(list4);
     System.out.println("delete-------end");
 
-    System.out.println("arraylist--------------------------end");
+    System.out.println("arraylist_add_get_update_delete--------------------------end");
   }
 
-  void list_duplicate(){
-    System.out.println("list_duplicate--------------------------start");
+  void arraylist_duplicate(){
+    System.out.println("arraylist_duplicate--------------------------start");
 
     List<String> listA = new ArrayList<String>(Arrays.asList("s", "a", "m", "u", "r", "a", "i"));
     List<String> listB = new ArrayList<String>(new HashSet<>(listA));
@@ -129,11 +169,27 @@ class Called {
     System.out.println("ListB = " + listB);
     System.out.println("ListA = " + listC);
 
-    System.out.println("list_duplicate--------------------------end");
+    System.out.println("arraylist_duplicate--------------------------end");
   }
 
-  void jackson_obj_str(){
-    System.out.println("jackson_obj_str--------------------------start");
+  void hashmap_put(){
+    System.out.println("hashmap_put--------------------------start");   
+
+    // Mapの宣言
+    Map<String, String> map1 = new HashMap<String, String>();
+    // MAPにデータを格納
+    map1.put("key1", "apple");
+    map1.put("key2", "orange");
+    map1.put("key3", "melon");
+    System.out.println(map1.get("key1"));
+    System.out.println(map1.get("key2"));
+    System.out.println(map1.get("key3"));
+
+    System.out.println("hashmap_put--------------------------end");
+  }
+
+  void jackson_objectmapper_obj_str(){
+    System.out.println("jackson_ObjectMapper_obj_str--------------------------start");
 
     System.out.println("Javaオブジェクト→JSON文字列-------start");
     Hoge hoge1 = new Hoge();
@@ -159,11 +215,11 @@ class Called {
 		}
 		System.out.println("JSON文字列→Javaオブジェクト-------end");
 
-    System.out.println("jackson_obj_str--------------------------end");
+    System.out.println("jackson_ObjectMapper_obj_str--------------------------end");
   }
 
-  void jackson_get(){
-    System.out.println("jackson_get--------------------------start");   
+  void jackson_objectmapper_get(){
+    System.out.println("jackson_ObjectMapper_get--------------------------start");   
 
     try {
       // 基本。
@@ -195,11 +251,11 @@ class Called {
 			e.printStackTrace();
 		}
 
-    System.out.println("jackson_get--------------------------end");
+    System.out.println("jackson_ObjectMapper_get--------------------------end");
   }
   
-  void jackson_map_loop(){
-    System.out.println("jackson_map_loop--------------------------start");   
+  void jackson_objectmapper_loop(){
+    System.out.println("jackson_ObjectMapper_loop--------------------------start");   
 
     try {
       ObjectMapper mapper = new ObjectMapper();
@@ -218,61 +274,42 @@ class Called {
 			e.printStackTrace();
 		}
 
-    System.out.println("jackson_map_loop--------------------------end");
+    System.out.println("jackson_ObjectMapper_loop--------------------------end");
   }
 
-  void jackson_put(){
-    System.out.println("jackson_put--------------------------start");   
-
-    // Mapの宣言
-    Map<String, String> map1 = new HashMap<String, String>();
-    // MAPにデータを格納
-    map1.put("key1", "apple");
-    map1.put("key2", "orange");
-    map1.put("key3", "melon");
-    System.out.println(map1.get("key1"));
-    System.out.println(map1.get("key2"));
-    System.out.println(map1.get("key3"));
-
-    System.out.println("jackson_put--------------------------end");
-  }
-  
-  void file_read(){
-    System.out.println("file_read--------------------------start");
-
-    String cd = System.getProperty("user.dir");
-    System.out.println(cd);
-    String file_path = cd + "/file";
-    String filename = "input.csv";
-    String charset = "UTF-8";
- 
+  void jackson_jsonnode(){
+    System.out.println("jackson_JsonNode--------------------------start");   
+    
     try {
-        List<String> line = Files.readAllLines(
-            Paths.get(file_path, filename),
-                Charset.forName(charset));
-        for (String s : line) {
-            System.out.println(s);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
+      System.out.println("get------------");  
+      ObjectMapper mapper = new ObjectMapper();
+      JsonNode root = mapper.readTree(new File("file/input.json"));
+      System.out.println(root);
+      String member_name = root.get("member").get(0).get("name").asText();
+      System.out.println(member_name);
+      int age = root.get("member").get(3).get("age").asInt();
+      System.out.println(age);
+      JsonNode root_2 = root.get("member").get(0);
+      System.out.println(root_2);
+
+      System.out.println("put------------");  
+      ((ObjectNode)root_2).put("name", "NO");
+      ((ObjectNode)root_2).put("k", "v");
+      System.out.println(root_2);
+
+      System.out.println("for get------------");  
+      for (JsonNode n : root.get("album")) {
+          String album_name = n.get("name").asText();
+          int year = n.get("year").asInt();
+          String month = n.get("month").asText();
+          int day = n.get("year").asInt();
+          System.out.println(album_name + ": " + day + " " + month + " " + year);
+      }
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
     }
 
-    System.out.println("file_read--------------------------end");
-  }
-
-  void file_write(){
-    System.out.println("file_write--------------------------start");
-
-    try {
-        File file = new File("output.txt");
-        FileWriter fw = new FileWriter(file);
-        fw.write("test output");
-        fw.close();
-    } catch (IOException ex) {
-        ex.printStackTrace();
-    }
-
-    System.out.println("file_write--------------------------end");
+    System.out.println("jackson_JsonNode--------------------------end");   
   }
 
   void type_sample(){
@@ -330,14 +367,15 @@ class GradleMain {
 
         System.out.println("list, map================================");
         c_001.listIteratorArrays();
-        c_001.arraylist();
-        c_001.list_duplicate();
+        c_001.arraylist_add_get_update_delete();
+        c_001.arraylist_duplicate();
+        c_001.hashmap_put();
 
         System.out.println("jackson================================");
-        c_001.jackson_obj_str();
-        c_001.jackson_map_loop();
-        c_001.jackson_get();
-        c_001.jackson_put();
+        c_001.jackson_objectmapper_obj_str();
+        c_001.jackson_objectmapper_loop();
+        c_001.jackson_objectmapper_get();
+        c_001.jackson_jsonnode();
 
         System.out.println("type================================");
         c_001.type_sample();
