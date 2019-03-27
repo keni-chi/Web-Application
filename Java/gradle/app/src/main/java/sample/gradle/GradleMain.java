@@ -365,10 +365,12 @@ class GradleMain {
         c_001.file_read();
         c_001.file_write();
 
-        System.out.println("list, map================================");
+        System.out.println("list================================");
         c_001.listIteratorArrays();
         c_001.arraylist_add_get_update_delete();
         c_001.arraylist_duplicate();
+
+        System.out.println("map================================");
         c_001.hashmap_put();
 
         System.out.println("jackson================================");
