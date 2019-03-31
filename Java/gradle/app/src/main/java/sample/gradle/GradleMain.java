@@ -362,6 +362,9 @@ class GradleMain {
 
         System.out.println("Basic================================");
         c_001.forIf();
+        Fuga fuga = new Fuga();
+        fuga.id = 20;
+        System.out.println(fuga);
 
         System.out.println("file================================");
         c_001.file_read();
