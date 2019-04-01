@@ -79,6 +79,6 @@
 
 [list,Iterator,arrayについて](https://qiita.com/masa-kunikata/items/72703085dbf59cc83052)  
 [arrayListについて](https://www.sejuku.net/blog/20355#add_addAll)  
-
 [jacksonについて](https://qiita.com/opengl-8080/items/b613b9b3bc5d796c840c)    
 [jackson(pattern)について](http://www.hiihah.info/index.php?Java%EF%BC%9AJackson%E3%82%92%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%A6JSON%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80)  
+[jackson JsonNodeについて](https://blog.kymmt.com/entry/jackson)  
