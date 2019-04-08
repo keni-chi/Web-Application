@@ -25,3 +25,5 @@ select * from sample;
 start transaction;
 delete from sample;
 select * from sample;
+rollback;
+select * from sample;
