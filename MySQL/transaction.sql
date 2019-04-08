@@ -5,3 +5,5 @@ constraint ID_PK primary key (id)
 );
 
 desc sample;
+
+select @@autocommit;
