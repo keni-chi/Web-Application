@@ -15,3 +15,9 @@ select * from sample;
 truncate table sample;
 rollback;
 select * from sample;
+
+
+select @@autocommit;
+set autocommit = 0;
+
+insert into sample(val) values(10),(20),(30);
