@@ -21,3 +21,5 @@ select @@autocommit;
 set autocommit = 0;
 
 insert into sample(val) values(10),(20),(30);
+select * from sample;
+start transaction;
