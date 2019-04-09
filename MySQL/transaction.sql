@@ -29,6 +29,7 @@ rollback;
 select * from sample;
 
 
+//ロック中はトランザクションが効いている
 select @@autocommit;
 set autocommit = 0;
 
