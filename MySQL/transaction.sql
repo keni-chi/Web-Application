@@ -27,3 +27,13 @@ delete from sample;
 select * from sample;
 rollback;
 select * from sample;
+
+
+select @@autocommit;
+set autocommit = 0;
+
+insert into sample(val) values(10),(20),(30);
+lock table sample write;
+delete from sample;
+rollback;
+select * from sample;
