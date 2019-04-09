@@ -6,6 +6,7 @@ constraint ID_PK primary key (id)
 desc sample;
 
 
+//TRUNCATEした時点で暗黙的にコミット
 select @@autocommit;
 set autocommit = 0;
 
