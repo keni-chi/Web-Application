@@ -6,7 +6,7 @@ constraint ID_PK primary key (id)
 desc sample;
 
 
-//TRUNCATEした時点で暗黙的にコミット
+//TRUNCATEした時点で暗黙的にコミット(最後にデータは空)
 select @@autocommit;
 set autocommit = 0;
 
@@ -18,6 +18,7 @@ rollback;
 select * from sample;
 
 
+//TRUNCATEした時点で暗黙的にコミット(最後にデータはあり)
 select @@autocommit;
 set autocommit = 0;
 
