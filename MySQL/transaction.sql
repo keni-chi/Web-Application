@@ -31,7 +31,7 @@ rollback;
 select * from sample;
 
 
-//ロック中はトランザクションが効いている
+//ロック中はトランザクションが効いている(最後にデータはあり)
 select @@autocommit;
 set autocommit = 0;
 
