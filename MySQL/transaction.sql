@@ -56,3 +56,4 @@ truncate table sample;
 select * from sample;
 rollback;
 select * from sample;
+※truncateしたあとに別セッションから参照しようとしても止まる。
