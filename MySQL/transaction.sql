@@ -48,3 +48,11 @@ rollback;
 unlock tables;
 ---別セッション---
 select * from sample;
+
+
+//暗黙コミットは動くけどロックは解除されない
+lock table sample write;
+truncate table sample;
+select * from sample;
+rollback;
+select * from sample;
