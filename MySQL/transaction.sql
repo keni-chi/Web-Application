@@ -40,3 +40,11 @@ lock table sample write;
 delete from sample;
 rollback;
 select * from sample;
+
+
+//ROLLBACK は MySQL の非トランザクション テーブル ロックを解除しません(最後にデータは空)※未検証
+lock table sample write;
+rollback;
+unlock tables;
+---別セッション---
+select * from sample;
