@@ -64,3 +64,8 @@ select * from sample;
 create table sample2(id int(11));
 lock table sample write;
 select * from sample2;
+
+-- すべてのテーブルロックを取る必要があります。
+unlock tables;
+lock tables sample write, sample2 write;
+select * from sample2;
