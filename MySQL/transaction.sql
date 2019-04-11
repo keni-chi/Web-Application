@@ -69,3 +69,17 @@ select * from sample2;
 unlock tables;
 lock tables sample write, sample2 write;
 select * from sample2;
+
+
+-- 1セッション内で続けてLOCK TABLESすると最初のロックはUNLOCKされる  ※未実行
+-- セッションA
+unlock tables;
+lock tables sample write;
+-- セッションB
+-- ロックされているので待機中
+select * from sample;
+-- セッションA
+-- 別のロックを取得(と同時に既存のロックを解放)
+lock tables sample2 write;
+-- セッションB
+-- 参照出来るようになって結果が出力される
