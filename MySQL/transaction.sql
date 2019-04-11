@@ -57,3 +57,10 @@ select * from sample;
 rollback;
 select * from sample;
 ※truncateしたあとに別セッションから参照しようとしても止まる。
+
+
+-- ロック中に参照するすべてのテーブルに対してロックを取らなくてはいけない
+-- 利用する予定の全てのテーブルをロックしなければいけません
+create table sample2(id int(11));
+lock table sample write;
+select * from sample2;
