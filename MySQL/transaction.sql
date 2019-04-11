@@ -6,7 +6,7 @@ constraint ID_PK primary key (id)
 desc sample;
 
 
-//TRUNCATEした時点で暗黙的にコミット(最後にデータは空)
+-- TRUNCATEした時点で暗黙的にコミット(最後にデータは空)
 select @@autocommit;
 set autocommit = 0;
 
@@ -18,7 +18,7 @@ rollback;
 select * from sample;
 
 
-//TRUNCATEした時点で暗黙的にコミット(最後にデータはあり)
+-- TRUNCATEした時点で暗黙的にコミット(最後にデータはあり)
 select @@autocommit;
 set autocommit = 0;
 
@@ -31,7 +31,7 @@ rollback;
 select * from sample;
 
 
-//ロック中はトランザクションが効いている(最後にデータはあり)
+-- ロック中はトランザクションが効いている(最後にデータはあり)
 select @@autocommit;
 set autocommit = 0;
 
@@ -42,15 +42,15 @@ rollback;
 select * from sample;
 
 
-//ROLLBACK は MySQL の非トランザクション テーブル ロックを解除しません(最後にデータは空)※未検証
+-- ROLLBACK は MySQL の非トランザクション テーブル ロックを解除しません(最後にデータは空)※未検証
 lock table sample write;
 rollback;
 unlock tables;
----別セッション---
+-- 別セッション --
 select * from sample;
 
 
-//暗黙コミットは動くけどロックは解除されない
+-- 暗黙コミットは動くけどロックは解除されない
 lock table sample write;
 truncate table sample;
 select * from sample;
