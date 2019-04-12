@@ -86,3 +86,4 @@ lock tables sample2 write;
 
 
 -- lockの件数を確認する
+show open tables;
