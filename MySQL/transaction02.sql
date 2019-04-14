@@ -7,6 +7,7 @@ constraint ID_PK primary key (product_id)
 desc products;
 
 
+-- 未実行
 insert ignore into products values (15, 'ipos', 23000);
 select * from products where product_id = 15 lock in share mode;
 select * from products where product_id = 15 for update;
