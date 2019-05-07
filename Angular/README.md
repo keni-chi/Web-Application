@@ -20,8 +20,7 @@ http://localhost:4200
 ng generate component heroes  
 
 ### deploy
-
-
+ng build --prod
 
 
 ## 参考
