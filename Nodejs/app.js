@@ -30,14 +30,12 @@ function async_request(){
 
   //リクエスト送信
   console.log('request_bodyよりこちらが先に実行される----------start');
-
   x = request(options, function (error, response, body) {
     //コールバックで色々な処理
     console.log('request_body-------------start');
     console.log(body);
     console.log('request_body-------------end');
   })
-
   console.log('request_bodyよりこちらが先に実行される----------end');
   // console.log(x);
 
