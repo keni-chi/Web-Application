@@ -55,10 +55,34 @@ function loop_request(){
 }
 
 
+function loop_list(){
+  console.log('loop_list---------------start');
+  
+  let ar = [10, 20, 30];
+
+  for(let i = 0; i < ar.length; i++) {
+    console.log(ar[i])
+  }
+
+  for(let i in ar) {
+    console.log(ar[i]);
+  }
+
+  for(let v of ar) {
+    console.log(v);
+  }
+
+  console.log('loop_list---------------end');
+}
+
+
 function main() {
+
   o = basic_async('input')
   console.log(o);
-  loop_request()
+  // loop_request()
+  loop_list()
+
 }
 
 main()
