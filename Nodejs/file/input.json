@@ -1,0 +1,26 @@
+[
+  {
+    "name": "taro",
+    "exam": {
+      "math": 100,
+      "lang": 100
+    },
+    "grade": "a"
+  },
+  {
+    "name": "jiro",
+    "exam": {
+      "math": 50,
+      "lang": 50
+    },
+    "grade": "c"
+  },
+  {
+    "name": "saburo",
+    "exam": {
+      "math": 10,
+      "lang": 10
+    },
+    "grade": "d"
+  }
+]

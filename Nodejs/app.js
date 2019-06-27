@@ -76,12 +76,51 @@ function loop_list(){
 }
 
 
+function read_json(){
+  console.log('read_json---------------start');
+  
+  var data = require( "./file/input.json" );
+  console.log(data);
+  console.log(data[0].name);
+  console.log(data[0].exam.math);
+  
+  console.log('抽出');
+  var matchData = data.filter(function(item, index){
+    if (item.name == "jiro") return true;
+  });
+  console.log(matchData[0].exam.lang); // =>50
+  
+  console.log('追加');
+  var addData = { "name" : "shiro", "exam" : { "math" : 10, "lang" : 100 }, "grade" : "b" }
+  data.push(addData);
+  console.log(data);
+
+  console.log('削除');
+  var newData = data.filter(function(item, index){
+    if (item.name != "jiro") return true;
+  });
+  data = newData;
+  console.log(data);
+
+  //「更新は削除」への「抽出の書き換え」の追加
+
+  console.log('read_json---------------end');
+}
+
+
 function main() {
 
+  console.log('ファイル操作=========================');
+  read_json()
+
+  console.log('基本=========================');
   o = basic_async('input')
-  console.log(o);
-  // loop_request()
+  // console.log(o);
   loop_list()
+
+  console.log('HTTPリクエスト=========================');
+  // loop_request()
+
 
 }
 
