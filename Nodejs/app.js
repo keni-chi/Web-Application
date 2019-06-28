@@ -101,8 +101,11 @@ function read_json(){
   });
   data = newData;
   console.log(data);
-
   //「更新は削除」への「抽出の書き換え」の追加
+  
+  // ファイル出力
+  var fs = require('fs');
+  fs.writeFileSync('./file/output.json', JSON.stringify(data));
 
   console.log('read_json---------------end');
 }
