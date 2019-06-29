@@ -44,6 +44,7 @@ function async_request(){
 
 
 function loop_request(){
+  console.log('loop_request---------------start');
   
   for (var i = 0; i < 3; i++ ){
     // 繰り返し処理
@@ -52,6 +53,7 @@ function loop_request(){
     console.log('loop' + i + '---end');
   }
 
+  console.log('loop_request---------------end');
 }
 
 
