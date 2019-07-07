@@ -112,6 +112,22 @@ function read_json(){
   console.log('read_json---------------end');
 }
 
+function if_sample(){
+  console.log('if_sample---------------start');
+  
+  const conditions = 'B'
+  if (conditions === 'A') {
+      console.log('a')
+  } else if (conditions === 'B') {
+      console.log('b')
+  } else {
+      console.log('else')
+  }
+
+  console.log('if_sample---------------end');
+}
+
+
 
 function main() {
 
@@ -119,6 +135,7 @@ function main() {
   read_json()
 
   console.log('基本=========================');
+  if_sample()
   o = basic_async('input')
   // console.log(o);
   loop_list()
