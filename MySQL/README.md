@@ -8,3 +8,4 @@
 [MySQL - InnoDBのロック関連まとめ](https://qiita.com/mizzwithliam/items/31fb68217899bd0559e8)  
 [mysqldumpまとめ](https://qiita.com/PlanetMeron/items/3a41e14607a65bc9b60c)  
 [MySQLダンプ、リストア](https://qiita.com/macer_fkm/items/d920ff77f0f5ae5484f9)
+[MySQLのインデックスの使い方](https://qiita.com/p_trotsenko/items/49e8f20c3bdb64ca7ffc)  
