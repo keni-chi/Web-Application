@@ -5,14 +5,24 @@
 
 ## docker
 docker run -it --entrypoint "/bin/bash" ubuntu:latest
+docker run --name gallant_robinson -it --entrypoint "/bin/bash" ubuntu:latest
+
+イメージ化＆中に入る
+    docker commit コンテナID 任意のイメージ名
+    docker run --rm -it --name run2 --entrypoint /bin/bash {イメージ名}
 
 
 ## Ubuntu 20.04　へのインストール
 
+ステップ0- ユーザ作成
+    adduser myname
+    gpasswd -a myname sudo
+    su myname
+    /home/mynameにappディレクトリを作成
+
 ステップ1— PostgreSQLのインストール
     sudo apt update
     sudo apt install postgresql
-
 
 ステップ2 — postgresユーザでログインできるようにパスワードを設定
     sudo passwd postgres
@@ -30,12 +40,8 @@ docker run -it --entrypoint "/bin/bash" ubuntu:latest
 
 ステップ6 — PostgreSQLを切断し、さきほど設定した新規ユーザで再度PostgreSQLに接続
     mydb=# \q
-    $ exit
-        adduser myname
-        gpasswd -a myname sudo
-        su myname
+    su myname
     psql mydb
-
 
 ステップ7 ー テーブル作成
 CREATE TABLE weather (
@@ -55,8 +61,8 @@ select * from weather;
     rootユーザに戻る
     sudo apt update
     sudo apt -y upgrade
-    sudo apt install build-essential libbz2-dev libdb-dev \
         #ビルド環境の準備
+        sudo apt install build-essential libbz2-dev libdb-dev \
         libreadline-dev libffi-dev libgdbm-dev liblzma-dev \
         libncursesw5-dev libsqlite3-dev libssl-dev \
         zlib1g-dev uuid-dev tk-dev
@@ -84,6 +90,12 @@ select * from weather;
         ※OS側のユーザー名とPostgreSQL側のユーザー名が一致していないと発生するエラー
         https://command-f.tech/postgresql/1
 
+
+## windows
+SQL shell
+    CREATE DATABASE mydb;
+コマンドプロンプト
+    psql -U postgres -d mydb -f init.sql
 
 
 ## 参考
