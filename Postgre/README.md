@@ -81,6 +81,8 @@ select * from weather;
     sudo apt install libpq-dev
     pip install psycopg2
 
+    ※sudo apt-get install python3.8
+
 ステップ10 コーディング
     rootになる
     apt-get install vim
