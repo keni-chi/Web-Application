@@ -30,3 +30,9 @@ http://localhost:8000/wp-login.php
 [【WordPress】プラグイン「WP ULike」で「いいね」ボタンを設置](https://deep-blog.jp/engineer/plugin-wp-ulike/#%E3%81%84%E3%81%84%E3%81%AD%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)  
 [ブログにいいねボタン設置とランキング表示ができるWP ULikeの使い方](https://takuweb1.com/2020/02/26/wp-ulike/)  
 
+
+## windowsかつnginxで構築
+[Windowsで(L)AMP(Nginx,MySQL,PHP)インストールからWordPressを動かすまで](https://server-setting.info/blog/windows-amp-nginx-install.html)  
+[Windows上にサーバー作成 Nginx/PHP/MariaDB/WordPress](https://okamurax.com/?p=2585)  
+[WordPress on Nginx on Windows。その1](https://chiyosuke.blogspot.com/2018/10/wordpress-on-nginx-on-windows1.html)  
+[nginxでwordpressのサイトを構築する](https://helloidea.org/index.php/archives/988.html)  
